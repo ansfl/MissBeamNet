@@ -10,7 +10,7 @@ One of the primary means of sea exploration is autonomous underwater vehicles (A
 Coming soon
 
 
-![Alt text](/Figures/auvpic.jpg "The ”Snapir” being pulled out of the water after a successful mission.")
+![Alt text](/auvpic.jpg "The ”Snapir” being pulled out of the water after a successful mission.")
 
 
 
