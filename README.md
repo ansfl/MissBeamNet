@@ -15,7 +15,7 @@ Coming soon
 
 
 ## Citation
-If you found the paper's methods, **DATA**, or CODE helpful in your research, please cite our paper:
+If you found the paper's methods, data, or code helpful in your research, please cite our paper:
 
     @article{Yona2023Miss,
     title = {MissBeamNet: Learning Missing Doppler Velocity Log Beam Measurements},
