@@ -3,12 +3,13 @@ from torch.utils.data import Dataset,DataLoader,random_split
 import numpy as np
 import pandas as pd
 import os 
-from Missbeam_dataloader import MissBeamDataset
-from Missbeam_lstm import MissbeamLSTM
 import torch.nn as nn
 import matplotlib.pyplot as plt
 from Missbeam_tcn import MissbeamTCN
 from Missbeam_cnn import MissbeamCNN
+from Missbeam_dataloader import MissBeamDataset
+from Missbeam_lstm import MissbeamLSTM
+
 
 if __name__ == '__main__':
     # read and load data
@@ -19,13 +20,14 @@ if __name__ == '__main__':
     test_df = pd.read_csv(test_file,index_col=None,header=0)
     train_df = train_df[['beam 1','beam 2','beam 3','beam 4','altitude','x speed','y speed','z speed']]
     test_df = test_df[['beam 1','beam 2','beam 3','beam 4','altitude','x speed','y speed','z speed']]
-    
+    train_df['altitude'] = train_df['altitude']/40
+    test_df['altitude'] = test_df['altitude']/40
     # for the CNN
     # train_df = train_df[['beam 1','beam 2','beam 3','beam 4']]
     # test_df = test_df[['beam 1','beam 2','beam 3','beam 4']]
     window_size = 6
     batch_size= 32
-    missing_beams = [4]
+    missing_beams = [1,2]
     train_dataset = MissBeamDataset(data = train_df.values,window_size=window_size, missing_beams_list= missing_beams)
     test_dataset = MissBeamDataset(data = test_df.values,window_size=window_size, missing_beams_list= missing_beams)
     train_loader = DataLoader(train_dataset,batch_size,drop_last=True)# if the batch size is not divided by the sample size
@@ -92,7 +94,7 @@ if __name__ == '__main__':
         train_accuracy[epoch] =  train_loss
         print(f"Epoch: {epoch}/{epochs} ,Step: {i}, Loss:{test_loss:.3}")
     
-    torch.save(model.state_dict(), 'model_tcn_4.pt')
+    torch.save(model.state_dict(), 'model_lstm_4.pt')
     """ plot """            
     plt.plot(train_accuracy[:],label = 'Train plot')
     plt.plot(test_accuracy[:],label = 'Test plot')
