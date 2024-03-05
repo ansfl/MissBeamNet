@@ -22,11 +22,14 @@ after you trained the model you can test it on the validation dataset on the val
 ## Citation
 If you found the paper's methods, data, or code helpful in your research, please cite our paper:
 
-    @article{Yona2023Miss,
-    title = {MissBeamNet: Learning Missing Doppler Velocity Log Beam Measurements},
-    year = {2023},
-    journal={arXiv preprint arXiv:2301.11597},
-    url = {https://doi.org/10.48550/arXiv.2301.11597},
-    author = {Mor Yona and Itzik Klein},
-    }
+@article{yona2024missbeamnet,
+  title={MissBeamNet: learning missing Doppler velocity log beam measurements},
+  author={Yona, Mor and Klein, Itzik},
+  journal={Neural Computing and Applications},
+  volume={36},
+  number={9},
+  pages={4947--4958},
+  year={2024},
+  publisher={Springer}
+}
 
